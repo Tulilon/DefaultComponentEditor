@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "tulilon.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "ItemStackMixin",
+    "ItemStackStreamCodecMixin",
+    "ServerGamePacketListenerImplMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

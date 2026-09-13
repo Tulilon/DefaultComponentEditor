@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "default-component-editor",
+  "version": "${version}",
+  "name": "Default Component Editor",
+  "description": "a small mod to change the default components of items",
+  "authors": ["Tulilon"],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/default-component-editor/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "tulilon.DefaultComponentEditor"
+    ]
+  },
+  "mixins": [
+    "default-component-editor.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
