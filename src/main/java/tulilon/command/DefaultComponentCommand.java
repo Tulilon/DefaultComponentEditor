@@ -28,6 +28,8 @@ public class DefaultComponentCommand {
 						.then(Commands.literal("reset")
 								.then(Commands.argument("input", ItemArgument.item(buildContext))
 										.executes(DefaultComponentCommand::executeReset)))
+						.then(Commands.literal("resetall")
+									.executes(DefaultComponentCommand::executeResetAll))
 						.then(Commands.literal("help")
 								.executes(DefaultComponentCommand::executeHelp)));
 
@@ -73,6 +75,18 @@ public class DefaultComponentCommand {
 
 		DataComponentUtils.applyComponentChanges(context.getSource().getServer());
 		context.getSource().sendSuccess(() -> Messages.getResetMessage(item),true);
+		return 1;
+	}
+	private static int executeResetAll(CommandContext<CommandSourceStack> context) {
+		var server = context.getSource().getServer();
+		var data = ComponentSavedData.getData(server);
+
+		data.getComponents().forEach((item, _) ->
+				data.setComponentsOfItem(item.value(), DataComponentPatch.EMPTY));
+
+		DataComponentUtils.applyComponentChanges(server);
+
+		context.getSource().sendSuccess(Messages::getResetAllMessage,true);
 		return 1;
 	}
 

@@ -80,7 +80,9 @@ public class Messages {
 		var itemText = Component.literal(getItemID(item)).withStyle(ChatFormatting.AQUA);
 		return literal("Reset default component of item ").append(itemText);
 	}
-
+	public static Component getResetAllMessage() {
+		return literal("Reset default components of all items");
+	}
 	public static MutableComponent patchToString(DataComponentPatch patch, RegistryAccess access) {
 		var result = DataComponentPatch.CODEC.encodeStart(RegistryOps.create(NbtOps.INSTANCE,access), patch);
 		return NbtUtils.toPrettyComponent(result.getOrThrow()).copy();
