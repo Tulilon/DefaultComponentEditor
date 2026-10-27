@@ -16,7 +16,7 @@ import tulilon.Messages;
 public class DefaultComponentCommand {
 	public static void register(CommandDispatcher<CommandSourceStack> dispatcher, CommandBuildContext buildContext) {
 		dispatcher.register(
-				Commands.literal("defaultcomponent").requires(Commands.hasPermission(Commands.LEVEL_ADMINS))
+				Commands.literal("defaultcomponent").requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS))
 						.then(Commands.literal("set")
 								.then(Commands.argument("input", ItemArgument.item(buildContext))
 										.executes(DefaultComponentCommand::executeSet)))
